@@ -107,4 +107,70 @@ function mostraAlternativas() {
     caixaAlternativas.appendChild(botaoAlternativas);
   }
 }
+botao.addEventListener("click", () => respostaSelecionada(opcao));
+function respostaSelecionada(opcaoSelecionada) {
+  atual++;
+  mostraPergunta();
+}
+function respostaSelecionada(opcaoSelecionada) {
+  const afirmacoes = opcaoSelecionada.afirmacoes;
+  atual++;
+  mostraPergunta();
+}
+let atual = 0;
+let perguntaAtual;
+let historiaFinal = "";
+function respostaSelecionada(opcaoSelecionada) {
+  const afirmacoes = opcaoSelecionada.afirmacoes;
+  historiaFinal += afirmacoes + " ";
+  atual++;
+  mostraPergunta();
+}
+function mostraPergunta() {
+  if (atual >= perguntas.length) {
+    mostraResultado();
+    return;
+  }
+  perguntaAtual = perguntas[atual];
+  caixaPerguntas.textContent = perguntaAtual.enunciado;
+  caixaAlternativas.textContent = "";
+  mostraAlternativas();
+}
+function mostraResultado() {
+  caixaPerguntas.textContent = "Em 2049...";
+  textoResultado.textContent = historiaFinal;
+  caixaAlternativas.textContent = "";
+}
+let historiaFinal = "";
+function respostaSelecionada(opcaoSelecionada) {
+  const afirmacao = opcaoSelecionada.afirmacao;
+  historiaFinal += afirmacao + " ";
+  atual++;
+  mostraPergunta();
+}
+button {
+  background-color: var(--cor-principal);
+  color: var(--cor-destaque);
+  border: none;
+  border-radius: 15px;
+  padding: 15px;
+  transition: background-color 0.3s;
+}
+button:hover {
+  background-color: var(--cor-destaque);
+  color: var(--cor-secundaria);
+}
+// Trecho ilustrativo do arquivo script.js
+enunciado: "Assim que saiu da escola você se depara com uma nova tecnologia...",
+alternativas: [
+  {
+    texto: "Isso é assustador!",
+    afirmacao: "No início ficou com medo do que essa tecnologia pode fazer."
+  },
+  {
+    texto: "Isso é maravilhoso!",
+    afirmacao: "Quis saber como usar IA no seu dia a dia."
+  }
+]
+missao-inteligencia-artificial
 
